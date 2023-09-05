@@ -92,9 +92,9 @@ export class Todo {
     btnDo.onclick = this.#handleDo(data, btnDo, el)
 
     if (data.done) {
-      el.classList.toggle('task--done')
-      btnDo.classList.toggle('task__button--do')
-      btnDo.classList.toggle('task__button--done')
+      el.classList.add('task--done')
+      btnDo.classList.remove('task__button--do')
+      btnDo.classList.add('task__button--done')
     }
 
     return el
@@ -104,9 +104,9 @@ export class Todo {
     const resultDone = this.#toggleDone(data.id)
 
     if (resultDone === true || resultDone === false) {
-      el.classList.add('task--done')
-      btn.classList.remove('task__button--do')
-      btn.classList.add('task__button--done')
+      el.classList.toggle('task--done')
+      btn.classList.toggle('task__button--do')
+      btn.classList.toggle('task__button--done')
 
       this.#saveData()
     }
